@@ -1,4 +1,4 @@
-import { LIGHT, ORANGE, DARK } from "./badges";
+import { LIGHT, DARK } from "./badges";
 import { getNumberOfUpvotes } from "./repl-talk";
 import width from "string-pixel-width";
 

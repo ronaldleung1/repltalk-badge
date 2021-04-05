@@ -1,4 +1,5 @@
 import axios from "axios";
+const repl = require('replapi-it');
 
 export const getNumberOfUpvotes = async (id: number) => {
   const apiResponse = await axios.get<{

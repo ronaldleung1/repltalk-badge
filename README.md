@@ -1,3 +1,3 @@
 # Replit Badge
 
-🛡️ Embeddable badges for your Replit Talk posts
+🛡️ Embeddable badges for your Repl Talk posts

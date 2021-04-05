@@ -5,8 +5,8 @@ import width from "string-pixel-width";
 export const getBadge = async (
   id: number,
   type = "light",
-  font = "Arial",
-  hackerNews = "Hacker News",
+  font = "IBM Plex Sans",
+  hackerNews = "Repl Talk",
   featuredOn = "FEATURED ON"
 ) => {
   let badge = LIGHT;

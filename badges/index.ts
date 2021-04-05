@@ -1,5 +1,15 @@
 export const LIGHT = `
   <svg width="{WIDTH}" height="67" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style type="text/css">
+      @font-face {
+        font-family: 'IBM Plex Sans';
+        font-style: normal;
+        font-weight: 700;
+        src: url('../fonts/ibm_plex_sans.woff2');
+      }
+    </style>
+  </defs>
     <g fill="none" fill-rule="evenodd">
       <rect stroke="#FF6600" stroke-width="2" fill="#FFFFFF" x="1" y="1" width="{SHORT_WIDTH}" height="65" rx="8"/>
       <rect fill="#FF6600" x="14" y="14" width="40" height="40" rx="3"/>

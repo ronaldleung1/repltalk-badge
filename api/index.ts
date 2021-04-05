@@ -10,15 +10,15 @@ export default async (req: NowRequest, res: NowResponse) => {
       typeof req.query.type === "string" ? req.query.type : undefined;
     const font =
       typeof req.query.font === "string" ? req.query.font : undefined;
-    const hackerNews =
-      typeof req.query.hackerNews === "string"
-        ? req.query.hackerNews
+    const replTalk =
+      typeof req.query.replTalk === "string"
+        ? req.query.replTalk
         : undefined;
     const featuredOn =
       typeof req.query.featuredOn === "string"
         ? req.query.featuredOn
         : undefined;
-    const badge = await getBadge(id, type, font, hackerNews, featuredOn);
+    const badge = await getBadge(id, type, font, replTalk, featuredOn);
     res.setHeader("Content-Type", "image/svg+xml");
     res.setHeader("Cache-Control", "max-age=86400");
     return res.send(badge);

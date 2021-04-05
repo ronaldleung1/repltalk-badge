@@ -1,15 +1,14 @@
 {
   "name": "badges",
   "version": "1.0.0",
-  "repository": "git@github.com:AnandChowdhary/hackerbadge.git",
-  "author": "Anand Chowdhary <mail@anandchowdhary.com>",
+  "repository": "git@github.com:googol88/repltalk-badge.git",
+  "author": "Googol",
   "license": "MIT",
   "scripts": {
     "local": "vercel dev"
   },
   "devDependencies": {
     "@now/node": "^1.2.0",
-    "@types/axios": "^0.14.0",
     "@types/string-pixel-width": "^1.7.0"
   },
   "dependencies": {

@@ -6,8 +6,10 @@ export default async (req: NowRequest, res: NowResponse) => {
     if (typeof req.query.id !== "string")
       throw new Error("ID should be provided");
     const id = parseInt(req.query.id);
-    const type =
-      typeof req.query.type === "string" ? req.query.type : undefined;
+    const style =
+      typeof req.query.style === "string" ? req.query.style : undefined;
+    const theme =
+      typeof req.query.theme === "string" ? req.query.theme : undefined;
     const font =
       typeof req.query.font === "string" ? req.query.font : undefined;
     const replTalk =
@@ -18,7 +20,7 @@ export default async (req: NowRequest, res: NowResponse) => {
       typeof req.query.featuredOn === "string"
         ? req.query.featuredOn
         : undefined;
-    const badge = await getBadge(id, type, font, replTalk, featuredOn);
+    const badge = await getBadge(id, style, theme, font, replTalk, featuredOn);
     res.setHeader("Content-Type", "image/svg+xml");
     res.setHeader("Cache-Control", "max-age=86400");
     return res.send(badge);

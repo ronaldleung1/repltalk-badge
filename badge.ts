@@ -4,14 +4,16 @@ import width from "string-pixel-width";
 
 export const getBadge = async (
   id: number,
-  type = "light",
+  style = "flat",
+  theme = "light",
   font = "IBM Plex Sans",
   replTalk = "Repl Talk",
   featuredOn = "FEATURED ON"
 ) => {
-  let badge = LIGHT;
-  if (type === "orange") badge = ORANGE;
-  if (type === "dark") badge = DARK;
+  let badge = LIGHT; // FLAT_LIGHT
+  if (style === "flat" && theme === "dark") badge = DARK; // FLAT_DARK
+  if (style === "gradient" && theme === "light") badge = LIGHT; // GRADIENT_LIGHT
+  if (style === "gradient" && theme === "dark") badge = DARK; // GRADIENT_DARK
   const upvotes = await getNumberOfUpvotes(id);
   const textWidth = width(replTalk, { size: 25 });
   const numberWidth = width(upvotes.toString(), { size: 18 });

@@ -1,4 +1,4 @@
-import { LIGHT, DARK } from "./badges";
+import { FLAT_LIGHT, FLAT_DARK, GRAD_LIGHT, GRAD_DARK } from "./badges";
 import { getNumberOfUpvotes } from "./repl-talk";
 import width from "string-pixel-width";
 
@@ -10,10 +10,10 @@ export const getBadge = async (
   replTalk = "Repl Talk",
   featuredOn = "FEATURED ON"
 ) => {
-  let badge = LIGHT; // FLAT_LIGHT
-  if (style === "flat" && theme === "dark") badge = DARK; // FLAT_DARK
-  if (style === "gradient" && theme === "light") badge = LIGHT; // GRADIENT_LIGHT
-  if (style === "gradient" && theme === "dark") badge = DARK; // GRADIENT_DARK
+  let badge = FLAT_LIGHT;
+  if (style === "flat" && theme === "dark") badge = FLAT_DARK;
+  if (style === "gradient" && theme === "light") badge = GRAD_LIGHT;
+  if (style === "gradient" && theme === "dark") badge = GRAD_DARK;
   const upvotes = await getNumberOfUpvotes(id);
   const textWidth = width(replTalk, { size: 25 });
   const numberWidth = width(upvotes.toString(), { size: 18 });

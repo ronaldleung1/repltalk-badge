@@ -1,5 +1,5 @@
 import { NowRequest, NowResponse } from "@now/node";
-import { getBadge } from "../badge";
+import { getBadge } from "../src/badge";
 
 export default async (req: NowRequest, res: NowResponse) => {
   try {

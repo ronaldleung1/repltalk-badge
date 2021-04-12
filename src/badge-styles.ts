@@ -6,7 +6,7 @@ export const FLAT_LIGHT = `
           font-family: 'IBM Plex Sans';
           font-style: normal;
           font-weight: 700;
-          src: url('../fonts/ibm_plex_sans.woff2');
+          src: url('./src/fonts/ibm_plex_sans.woff2');
         }
       </style>
     </defs>
@@ -40,7 +40,7 @@ export const FLAT_DARK = `
           font-family: 'IBM Plex Sans';
           font-style: normal;
           font-weight: 700;
-          src: url('../fonts/ibm_plex_sans.woff2');
+          src: url('./src/fonts/ibm_plex_sans.woff2');
         }
       </style>
     </defs>
@@ -74,7 +74,7 @@ export const GRAD_LIGHT = `
           font-family: 'IBM Plex Sans';
           font-style: normal;
           font-weight: 700;
-          src: url('../fonts/ibm_plex_sans.woff2');
+          src: url('./src/fonts/ibm_plex_sans.woff2');
         }
       </style>
       <linearGradient id="lightbg" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -112,7 +112,7 @@ export const GRAD_DARK = `
           font-family: 'IBM Plex Sans';
           font-style: normal;
           font-weight: 700;
-          src: url('../fonts/ibm_plex_sans.woff2');
+          src: url('./src/fonts/ibm_plex_sans.woff2');
         }
       </style>
       <linearGradient id="darkbg" x1="0%" y1="0%" x2="0%" y2="100%">

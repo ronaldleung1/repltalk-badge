@@ -1,4 +1,4 @@
-import { FLAT_LIGHT, FLAT_DARK, GRAD_LIGHT, GRAD_DARK } from "./badges";
+import { FLAT_LIGHT, FLAT_DARK, GRAD_LIGHT, GRAD_DARK } from "./badge-styles";
 import { getNumberOfUpvotes } from "./repl-talk";
 import width from "string-pixel-width";
 

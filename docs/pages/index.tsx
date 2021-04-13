@@ -8,11 +8,14 @@ import {
   Row,
   Col 
 } from '@geist-ui/react'
-import styles from '../styles/Home.module.css'
 
 export default function Home() {
   return (
     <Page>
+      <Head>
+        <title>Repl Talk Badge Generator</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <Text h1 size="2em" style={{textAlign:"center"}}>Repl Talk Badge Generator</Text>
       <Row>
         <Col>

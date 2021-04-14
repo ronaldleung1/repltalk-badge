@@ -19,11 +19,13 @@ export default function Home() {
       <Text h1 size="2em" style={{textAlign:"center"}}>Repl Talk Badge Generator</Text>
       <Row>
         <Col>
-          <Input placeholder="Repl Talk URL" />
+          <Text style={{display: 'inline-block', width: '8em', textAlign: 'right', marginRight: '1em'}}>Repl Talk URL</Text>
+          <Input placeholder="http://replit.com/talk/share/HelloWorld/123456"/>
           <Spacer y={.5} />
-          <Select placeholder="Style">
-            <Select.Option value="1">Option 1</Select.Option>
-            <Select.Option value="2">Option 2</Select.Option>
+          <Text style={{display: 'inline-block', width: '8em', textAlign: 'right', marginRight: '1em'}}>Style</Text>
+          <Select placeholder="Choose one" initialValue="1">
+            <Select.Option value="1">Flat</Select.Option>
+            <Select.Option value="2">Gradient</Select.Option>
           </Select>
           <Spacer y={.5} />
           <Select placeholder="Theme">

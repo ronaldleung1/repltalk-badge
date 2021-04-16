@@ -8,7 +8,9 @@ import {
   Select,
   Grid,
   Button,
-  Display
+  Display,
+  Description,
+  Code
 } from '@geist-ui/react'
 
 export default function Home() {
@@ -22,7 +24,7 @@ export default function Home() {
       <Grid.Container>
         <Grid xs={24} sm={24} md={16} style={{display: "block"}}>
           <Text style={{display: 'inline-block', width: '8em', textAlign: 'right', marginRight: '1em'}}>Repl Talk URL</Text>
-          <Input placeholder="http://replit.com/talk/share/HelloWorld/123456" width="24em"/>
+          <Input placeholder="https://replit.com/talk/share/HelloWorld/123456" width="24em"/>
           <Spacer y={.5} />
 
           <Text style={{display: 'inline-block', width: '8em', textAlign: 'right', marginRight: '1em'}}>Style</Text>
@@ -58,7 +60,18 @@ export default function Home() {
           <Display shadow caption="Badge Preview">
             <Image src="https://replit-badge.vercel.app/api?id=123456" />
           </Display>
-          
+          <Description title="Markdown" content={
+            <Code block>{
+              `[![Repl Talk Badge](https://replit-badge.vercel.app/api?id=123456)](https://replit.com/talk/share/HelloWorld/123456)`
+            }</Code>
+          } />
+          <Description title="HTML" content={
+            <Code block>{
+`<a href="https://replit.com/talk/share/HelloWorld/123456">
+  <img src="https://replit-badge.vercel.app/api?id=123456" alt="Repl Talk Badge">
+</a>`
+            }</Code>
+          } />
         </Grid>
       </Grid.Container>
     </Page>

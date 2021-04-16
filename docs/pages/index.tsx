@@ -6,7 +6,9 @@ import {
   Spacer,
   Input,
   Select,
-  Grid
+  Grid,
+  Button,
+  Display
 } from '@geist-ui/react'
 
 export default function Home() {
@@ -43,12 +45,20 @@ export default function Home() {
 
           <Text style={{display: 'inline-block', width: '8em', textAlign: 'right', marginRight: '1em'}}>Alternate Text 2</Text>
           <Input placeholder="Repl Talk"/>
-          <Spacer y={2} />
+          <Spacer y={.5} />
+
+          <Text style={{display: 'inline-block', width: '8em', textAlign: 'right', marginRight: '1em'}}>Font</Text>
+          <Input placeholder="IBM Plex Sans"/>
+          <Spacer y={1} />
+
+          <Button auto type="secondary-light" style={{display: "block", margin: "auto"}}>Generate badge</Button>
         </Grid>
-        <Grid xs={24} sm={24} md={8}>
-          <Image
-            src="https://replit-badge.vercel.app/api?id=123456"
-          />
+        <Grid xs={24} sm={24} md={8} style={{display: "block"}}>
+          <Spacer y={2} />
+          <Display shadow caption="Badge Preview">
+            <Image src="https://replit-badge.vercel.app/api?id=123456" />
+          </Display>
+          
         </Grid>
       </Grid.Container>
     </Page>

@@ -15,8 +15,9 @@ import {
 import { useState } from 'react';
 
 export default function Home() {
-  const [id, setId] = useState(0);
-  const onChange = (event) => {
+  const [id, setId] = useState(null);
+  const [style, setStyle] = useState("flat");
+  const onChangeUrl = (event) => {
     let url;
     try {
       url = new URL(event.target.value);
@@ -25,6 +26,13 @@ export default function Home() {
     }
     const parts = new URL(url).pathname.split('/'); // handle potential trailing slash
     setId(+(parts.pop() || parts.pop())); // casts to number before setting state
+  }
+  const onChangeStyle = (value) => {
+    console.log(value);
+    if(value === "1")
+      setStyle("flat");
+    else
+      setStyle("gradient");
   }
   return (
     <Page>
@@ -36,11 +44,11 @@ export default function Home() {
       <Grid.Container>
         <Grid xs={24} sm={24} md={16} style={{display: "block"}}>
           <Text style={{display: 'inline-block', width: '8em', textAlign: 'right', marginRight: '1em'}}>Repl Talk URL</Text>
-          <Input placeholder="https://replit.com/talk/share/HelloWorld/123456" onChange={onChange} width="24em"/>
+          <Input placeholder="https://replit.com/talk/share/HelloWorld/123456" onChange={onChangeUrl} width="24em"/>
           <Spacer y={.5} />
 
           <Text style={{display: 'inline-block', width: '8em', textAlign: 'right', marginRight: '1em'}}>Style</Text>
-          <Select placeholder="Choose one" initialValue="1">
+          <Select placeholder="Choose one" initialValue="1" onChange={onChangeStyle}>
             <Select.Option value="1">Flat</Select.Option>
             <Select.Option value="2">Gradient</Select.Option>
           </Select>
@@ -71,7 +79,7 @@ export default function Home() {
         <Grid xs={24} sm={24} md={8} style={{display: "block"}}>
           <Spacer y={2} />
           <Display shadow caption="Badge Preview">
-            <Image src={"https://replit-badge.vercel.app/api?id=123456"} />
+            <Image src={"https://replit-badge.vercel.app/api?id="+(id ? id : 123456)+(style === "flat" ? "" : "&style=gradient")} alt="Error: Invalid ID"/>
           </Display>
           <Description title="Markdown" content={
             <Code block>{

@@ -17,6 +17,7 @@ import { useEffect, useState } from 'react';
 export default function Home() {
   const [id, setId] = useState(null);
   const [style, setStyle] = useState("flat");
+  const [theme, setTheme] = useState("light");
   const [url, setUrl] = useState("https://replit-badge.vercel.app/api?id=123456");
   const [post, setPost] = useState("https://replit.com/talk/share/HelloWorld/123456");
   
@@ -32,15 +33,20 @@ export default function Home() {
     setId(+(parts.pop() || parts.pop())); // casts to number before setting state
   }
   const onChangeStyle = (value) => {
-    console.log(value);
     if(value === "1")
       setStyle("flat");
     else
       setStyle("gradient");
   }
+  const onChangeTheme = (value) => {
+    if(value === "1")
+      setTheme("light");
+    else
+      setTheme("dark");
+  }
 
   useEffect(() => {
-    setUrl("https://replit-badge.vercel.app/api?id="+(id ? id : 123456)+(style === "flat" ? "" : "&style=gradient"));
+    setUrl("https://replit-badge.vercel.app/api?id="+(id ? id : 123456)+(style === "flat" ? "" : "&style=gradient")+(theme === "light" ? "" : "&theme=dark"));
   });
 
   return (
@@ -64,7 +70,7 @@ export default function Home() {
           <Spacer y={.5} />
           
           <Text style={{display: 'inline-block', width: '8em', textAlign: 'right', marginRight: '1em'}}>Theme</Text>
-          <Select placeholder="Choose one" initialValue="1">
+          <Select placeholder="Choose one" initialValue="1" onChange={onChangeTheme}>
             <Select.Option value="1">Light</Select.Option>
             <Select.Option value="2">Dark</Select.Option>
           </Select>

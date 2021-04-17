@@ -12,11 +12,14 @@ import {
   Description,
   Code
 } from '@geist-ui/react'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function Home() {
   const [id, setId] = useState(null);
   const [style, setStyle] = useState("flat");
+  const [url, setUrl] = useState("https://replit-badge.vercel.app/api?id=123456");
+  const [post, setPost] = useState("https://replit.com/talk/share/HelloWorld/123456");
+  
   const onChangeUrl = (event) => {
     let url;
     try {
@@ -24,6 +27,7 @@ export default function Home() {
     } catch (_) {
       return;  
     }
+    setPost(url);
     const parts = new URL(url).pathname.split('/'); // handle potential trailing slash
     setId(+(parts.pop() || parts.pop())); // casts to number before setting state
   }
@@ -34,6 +38,11 @@ export default function Home() {
     else
       setStyle("gradient");
   }
+
+  useEffect(() => {
+    setUrl("https://replit-badge.vercel.app/api?id="+(id ? id : 123456)+(style === "flat" ? "" : "&style=gradient"));
+  });
+
   return (
     <Page>
       <Head>
@@ -73,23 +82,23 @@ export default function Home() {
           <Input placeholder="IBM Plex Sans"/>
           <Spacer y={1} />
 
-          <Button auto type="secondary-light" style={{display: "block", margin: "auto"}}>Generate badge</Button>
+          {/*<Button auto type="secondary-light" style={{display: "block", margin: "auto"}}>Generate badge</Button>*/}
         </Grid>
         
         <Grid xs={24} sm={24} md={8} style={{display: "block"}}>
           <Spacer y={2} />
           <Display shadow caption="Badge Preview">
-            <Image src={"https://replit-badge.vercel.app/api?id="+(id ? id : 123456)+(style === "flat" ? "" : "&style=gradient")} alt="Error: Invalid ID"/>
+            <Image src={url} alt="Error: Invalid ID"/>
           </Display>
           <Description title="Markdown" content={
             <Code block>{
-              `[![Repl Talk Badge](https://replit-badge.vercel.app/api?id=123456)](https://replit.com/talk/share/HelloWorld/123456)`
+              `[![Repl Talk Badge](${url})](${post})`
             }</Code>
           } />
           <Description title="HTML" content={
             <Code block>{
-`<a href="https://replit.com/talk/share/HelloWorld/123456">
-  <img src="https://replit-badge.vercel.app/api?id=123456" alt="Repl Talk Badge">
+`<a href="${post}">
+  <img src="${url}" alt="Repl Talk Badge">
 </a>`
             }</Code>
           } />

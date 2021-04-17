@@ -12,8 +12,20 @@ import {
   Description,
   Code
 } from '@geist-ui/react'
+import { useState } from 'react';
 
 export default function Home() {
+  const [id, setId] = useState(0);
+  const onChange = (event) => {
+    let url;
+    try {
+      url = new URL(event.target.value);
+    } catch (_) {
+      return;  
+    }
+    const parts = new URL(url).pathname.split('/'); // handle potential trailing slash
+    setId(+(parts.pop() || parts.pop())); // casts to number before setting state
+  }
   return (
     <Page>
       <Head>
@@ -24,7 +36,7 @@ export default function Home() {
       <Grid.Container>
         <Grid xs={24} sm={24} md={16} style={{display: "block"}}>
           <Text style={{display: 'inline-block', width: '8em', textAlign: 'right', marginRight: '1em'}}>Repl Talk URL</Text>
-          <Input placeholder="https://replit.com/talk/share/HelloWorld/123456" width="24em"/>
+          <Input placeholder="https://replit.com/talk/share/HelloWorld/123456" onChange={onChange} width="24em"/>
           <Spacer y={.5} />
 
           <Text style={{display: 'inline-block', width: '8em', textAlign: 'right', marginRight: '1em'}}>Style</Text>
@@ -55,10 +67,11 @@ export default function Home() {
 
           <Button auto type="secondary-light" style={{display: "block", margin: "auto"}}>Generate badge</Button>
         </Grid>
+        
         <Grid xs={24} sm={24} md={8} style={{display: "block"}}>
           <Spacer y={2} />
           <Display shadow caption="Badge Preview">
-            <Image src="https://replit-badge.vercel.app/api?id=123456" />
+            <Image src={"https://replit-badge.vercel.app/api?id=123456"} />
           </Display>
           <Description title="Markdown" content={
             <Code block>{

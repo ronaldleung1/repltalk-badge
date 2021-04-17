@@ -18,6 +18,9 @@ export default function Home() {
   const [id, setId] = useState(null);
   const [style, setStyle] = useState("flat");
   const [theme, setTheme] = useState("light");
+  const [featured, setFeatured] = useState(null);
+  const [repl, setRepl] = useState(null);
+  const [font, setFont] = useState(null);
   const [url, setUrl] = useState("https://replit-badge.vercel.app/api?id=123456");
   const [post, setPost] = useState("https://replit.com/talk/share/HelloWorld/123456");
   
@@ -44,9 +47,19 @@ export default function Home() {
     else
       setTheme("dark");
   }
+  const onChangeFeatured = (event) => {setFeatured(event.target.value);}
+  const onChangeRepl = (event) => {setRepl(event.target.value);}
+  const onChangeFont = (event) => {setFont(event.target.value);}
 
   useEffect(() => {
-    setUrl("https://replit-badge.vercel.app/api?id="+(id ? id : 123456)+(style === "flat" ? "" : "&style=gradient")+(theme === "light" ? "" : "&theme=dark"));
+    setUrl(encodeURI(
+      "https://replit-badge.vercel.app/api?id=" +
+      (id ? id : 123456) +
+      (style === "flat" ? "" : "&style=gradient") +
+      (theme === "light" ? "" : "&theme=dark") +
+      (featured ? ("&featuredOn="+featured) : "") +
+      (repl ? ("&replTalk="+repl) : "") +
+      (font ? ("&font="+font) : "")));
   });
 
   return (
@@ -77,15 +90,15 @@ export default function Home() {
           <Spacer y={.5} />
 
           <Text style={{display: 'inline-block', width: '8em', textAlign: 'right', marginRight: '1em'}}>Alternate Text 1</Text>
-          <Input placeholder="Featured On"/>
+          <Input placeholder="Featured On" onChange={onChangeFeatured}/>
           <Spacer y={.5} />
 
           <Text style={{display: 'inline-block', width: '8em', textAlign: 'right', marginRight: '1em'}}>Alternate Text 2</Text>
-          <Input placeholder="Repl Talk"/>
+          <Input placeholder="Repl Talk" onChange={onChangeRepl}/>
           <Spacer y={.5} />
 
           <Text style={{display: 'inline-block', width: '8em', textAlign: 'right', marginRight: '1em'}}>Font</Text>
-          <Input placeholder="IBM Plex Sans"/>
+          <Input placeholder="IBM Plex Sans" onChange={onChangeFont}/>
           <Spacer y={1} />
 
           {/*<Button auto type="secondary-light" style={{display: "block", margin: "auto"}}>Generate badge</Button>*/}

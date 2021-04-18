@@ -25,6 +25,7 @@ export default async (req: NowRequest, res: NowResponse) => {
     res.setHeader("Cache-Control", "max-age=86400");
     return res.send(badge);
   } catch (error) {
+    console.log("error: " + error)
     res.status(400);
     res.json({ error });
   }

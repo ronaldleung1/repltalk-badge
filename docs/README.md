@@ -1,4 +1,6 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Repl Talk Badge Generator
+
+Creates Repl Talk badges in markdown and HTML, featuring a live preview. Made with [Next.js](https://github.com/vercel/next.js) and [Geist UI](https://github.com/geist-org/react).
 
 ## Getting Started
 

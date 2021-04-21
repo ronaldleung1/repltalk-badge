@@ -1,5 +1,5 @@
 import { FLAT_LIGHT, FLAT_DARK, GRAD_LIGHT, GRAD_DARK } from "./badge-styles";
-import { getNumberOfUpvotes } from "./repl-talk";
+//import { getNumberOfUpvotes } from "./repl-talk";
 import width from "string-pixel-width";
 
 export const getBadge = async (
@@ -14,7 +14,7 @@ export const getBadge = async (
   if (style === "flat" && theme === "dark") badge = FLAT_DARK;
   if (style === "gradient" && theme === "light") badge = GRAD_LIGHT;
   if (style === "gradient" && theme === "dark") badge = GRAD_DARK;
-  const upvotes = await getNumberOfUpvotes(id);
+  const upvotes = 1; // await getNumberOfUpvotes(id);
   const textWidth = width(replTalk, { size: 25 });
   const numberWidth = width(upvotes.toString(), { size: 18 });
   return badge

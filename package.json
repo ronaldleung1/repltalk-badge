@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
-    "replapi-it": "^1.2.14",
+    "replapi-it": "^2.0.2",
     "string-pixel-width": "^1.10.0"
   }
 }

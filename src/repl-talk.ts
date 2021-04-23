@@ -5,7 +5,7 @@ const replapi = ReplAPI({
   username: 'RonaldLeung1',
 });
 
-//const myTestClass = new replapi.User('RonaldLeung1');
+const myTestClass = new replapi.User('RonaldLeung1');
 
 /*async function myTestFunction() {
   const info = await myTestClass.userGraphQLDataFull();
@@ -13,12 +13,15 @@ const replapi = ReplAPI({
 }
 myTestFunction();*/
 export const getNumberOfUpvotes = async (id: number) => {
-  const post = new replapi.Post(id);
   const info = await myTestClass.userGraphQLDataFull();
+  console.log(info);
+  /*
+  const post = new replapi.Post(id);
+  const info = await post.postDataAbridged();
   //console.log("Testing");
   
-  console.log(post);
-  const info = await post.postData();
-  console.log("Post info: " + info);
+  console.log(info);
+  /*const info = await post.postData();
+  console.log("Post info: " + info);*/
   return info.voteCount;
 };

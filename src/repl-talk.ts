@@ -6,7 +6,7 @@ const replapi = ReplAPI({
 });
 
 const myTestClass = new replapi.User('RonaldLeung1');
-
+// wow what an amazing commit
 /*async function myTestFunction() {
   const info = await myTestClass.userGraphQLDataFull();
   console.log(info);

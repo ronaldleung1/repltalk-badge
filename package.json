@@ -4,6 +4,7 @@
   "repository": "git@github.com:googol88/repltalk-badge.git",
   "author": "Googol",
   "license": "MIT",
+  "type": "module",
   "scripts": {
     "local": "vercel dev"
   },
@@ -13,7 +14,7 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
-    "replapi-it": "^2.0.2",
+    "replapi-it": "^2.0.6",
     "string-pixel-width": "^1.10.0"
   }
 }

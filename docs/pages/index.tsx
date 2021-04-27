@@ -68,12 +68,14 @@ export default function Home() {
         <title>Repl Talk Badge Generator</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <Text h1 size="2em" style={{textAlign:"center"}}>Repl Talk Badge Generator</Text>
+      <Text h1 size="2em" style={{textAlign:"center", margin: "1em 0"}}>Repl Talk Badge Generator</Text>
       <Grid.Container>
-        <Grid xs={24} sm={24} md={16} style={{display: "block"}}>
-          <Text style={{display: 'inline-block', width: '8em', textAlign: 'right', marginRight: '1em'}}>Repl Talk URL</Text>
-          <Input placeholder="https://replit.com/talk/share/HelloWorld/123456" onChange={onChangeUrl} width="24em"/>
-          <Spacer y={.5} />
+        <Grid xs={24} sm={24} md={12} style={{display: "block"}}>
+          <div style={{textAlign: 'center'}}>
+            <Text>Repl Talk URL</Text>
+            <Input placeholder="https://replit.com/talk/share/HelloWorld/123456" onChange={onChangeUrl} width="24em"/>
+          </div>
+          <Spacer y={1} />
 
           <Text style={{display: 'inline-block', width: '8em', textAlign: 'right', marginRight: '1em'}}>Style</Text>
           <Select placeholder="Choose one" initialValue="1" onChange={onChangeStyle}>
@@ -103,8 +105,7 @@ export default function Home() {
 
           {/*<Button auto type="secondary-light" style={{display: "block", margin: "auto"}}>Generate badge</Button>*/}
         </Grid>
-        
-        <Grid xs={24} sm={24} md={8} style={{display: "block"}}>
+        <Grid xs={24} sm={24} md={12} style={{display: "block"}}>
           <Spacer y={2} />
           <Display shadow caption="Badge Preview">
             <Image src={url} alt="Error: Invalid ID"/>
@@ -120,9 +121,12 @@ export default function Home() {
   <img src="${url}" alt="Repl Talk Badge">
 </a>`
             }</Code>
-          } />
+          }/>
         </Grid>
       </Grid.Container>
+      <Page.Footer style={{textAlign: "center"}}>
+        <Text>This site is <a href="https://github.com/googol88/repltalk-badge">open source</a>!</Text>
+      </Page.Footer>
     </Page>
   )
 }

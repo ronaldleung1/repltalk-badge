@@ -1,4 +1,4 @@
-import ReplAPI from 'replapi-it'
+const ReplAPI = require('replapi-it');
 const replapi = ReplAPI();
 
 

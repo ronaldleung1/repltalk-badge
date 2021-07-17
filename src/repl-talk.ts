@@ -1,4 +1,4 @@
-const ReplAPI = require('replapi-it').default;
+/*import ReplAPI from 'replapi-it'
 const replapi = ReplAPI();
 
 
@@ -7,4 +7,4 @@ export const getNumberOfUpvotes = async (id: number) => {
   const info = await post.postDataFull();  
   console.log(info);
   return info.voteCount;
-};
+};*/

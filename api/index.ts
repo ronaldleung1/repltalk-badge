@@ -5,7 +5,7 @@ export default async (req: NowRequest, res: NowResponse) => {
   try {
     if (typeof req.query.id !== "string")
       throw new Error("ID should be provided");
-    const id = parseInt(req.query.id);
+    const id = req.query.id;
     const style =
       typeof req.query.style === "string" ? req.query.style : undefined;
     const theme =

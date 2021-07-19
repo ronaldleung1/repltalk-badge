@@ -3,7 +3,7 @@ import { getNumberOfUpvotes } from "./repl-talk";
 import width from "string-pixel-width";
 
 export const getBadge = async (
-  id: string,
+  id: number,
   style = "flat",
   theme = "light",
   font = "IBM Plex Sans",

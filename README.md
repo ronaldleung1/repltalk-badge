@@ -12,12 +12,12 @@ Use the [badge generator](https://create-replit-badge.now.sh/) to create your ow
 
 ## Examples
 ### Badge Styles
-[![Repl Talk Badge](https://replit-badge.vercel.app/api?id=123456)](#) [![Repl Talk Badge](https://replit-badge.vercel.app/api?id=123456&theme=dark)](#)
+[![Repl Talk Badge](https://replit-badge.vercel.app/api?id=143059)](https://replit.com/talk/share/post/143059) [![Repl Talk Badge](https://replit-badge.vercel.app/api?id=143059&theme=dark)](https://replit.com/talk/share/post/143059)
 
-[![Repl Talk Badge](https://replit-badge.vercel.app/api?id=123456&style=gradient&theme=light)](#) [![Repl Talk Badge](https://replit-badge.vercel.app/api?id=123456&style=gradient&theme=dark)](#)
+[![Repl Talk Badge](https://replit-badge.vercel.app/api?id=143059&style=gradient&theme=light)](https://replit.com/talk/share/post/143059) [![Repl Talk Badge](https://replit-badge.vercel.app/api?id=143059&style=gradient&theme=dark)](https://replit.com/talk/share/post/143059)
 
 ### Custom Font and Labels
-[![Repl Talk Badge](https://replit-badge.vercel.app/api?id=123456&featuredOn=upvoted%20on&replTalk=Replit&font=Helvetica)](#)
+[![Repl Talk Badge](https://replit-badge.vercel.app/api?id=143059&featuredOn=upvoted%20on&replTalk=Replit&font=Helvetica)](https://replit.com/talk/share/post/143059)
 
 ## API
 | Option     | Type    | Required | Default         | Description                            |

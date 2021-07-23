@@ -10,6 +10,18 @@ Create embeddable badges for your Repl Talk posts to display upvotes on websites
 ## Usage
 Use the [badge generator](https://create-replit-badge.now.sh/) to create your own custom badge in HTML and Markdown.
 
+### Markdown
+```
+[![Repl Talk Badge](https://replit-badge.vercel.app/api?id=143059)](https://replit.com/talk/share/post/143059)
+```
+
+### HTML
+```
+<a href="https://replit.com/talk/share/post/143059">
+  <img src="https://replit-badge.vercel.app/api?id=143059" alt="Repl Talk Badge">
+</a>
+```
+
 ## Examples
 ### Badge Styles
 [![Repl Talk Badge](https://replit-badge.vercel.app/api?id=143059)](https://replit.com/talk/share/post/143059) [![Repl Talk Badge](https://replit-badge.vercel.app/api?id=143059&theme=dark)](https://replit.com/talk/share/post/143059)

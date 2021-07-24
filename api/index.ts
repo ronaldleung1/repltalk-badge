@@ -12,6 +12,8 @@ export default async (req: NowRequest, res: NowResponse) => {
       typeof req.query.theme === "string" ? req.query.theme : undefined;
     const font =
       typeof req.query.font === "string" ? req.query.font : undefined;
+    const border =
+      typeof req.query.border === "string" ? req.query.border : undefined;
     const replTalk =
       typeof req.query.replTalk === "string"
         ? req.query.replTalk
@@ -20,7 +22,7 @@ export default async (req: NowRequest, res: NowResponse) => {
       typeof req.query.featuredOn === "string"
         ? req.query.featuredOn
         : undefined;
-    const badge = await getBadge(id, style, theme, font, replTalk, featuredOn);
+    const badge = await getBadge(id, style, theme, border, font, replTalk, featuredOn);
     res.setHeader("Content-Type", "image/svg+xml");
     res.setHeader("Cache-Control", "max-age=86400");
     return res.send(badge);

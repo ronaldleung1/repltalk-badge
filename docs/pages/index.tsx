@@ -7,7 +7,7 @@ import {
   Input,
   Select,
   Grid,
-  Button,
+  
   Display,
   Description,
   Code
@@ -15,14 +15,16 @@ import {
 import { useEffect, useState } from 'react';
 
 export default function Home() {
-  const [id, setId] = useState(null);
+  const defaultId = 143059;
+  const [id, setId] = useState(defaultId);
   const [style, setStyle] = useState("flat");
   const [theme, setTheme] = useState("light");
+  const [border, setBorder] = useState("rounded");
   const [featured, setFeatured] = useState(null);
   const [repl, setRepl] = useState(null);
   const [font, setFont] = useState(null);
-  const [url, setUrl] = useState("https://replit-badge.vercel.app/api?id=123456");
-  const [post, setPost] = useState("https://replit.com/talk/share/HelloWorld/123456");
+  const [url, setUrl] = useState(`https://replit-badge.vercel.app/api?id=${defaultId}`);
+  const [post, setPost] = useState(`https://replit.com/talk/share/post/${defaultId}`);
   
   const onChangeUrl = (event) => {
     let url;
@@ -47,6 +49,12 @@ export default function Home() {
     else
       setTheme("dark");
   }
+  const onChangeBorder = (value) => {
+    if(value === "1")
+      setBorder("rounded");
+    else
+      setBorder("square");
+  }
   const onChangeFeatured = (event) => {setFeatured(event.target.value);}
   const onChangeRepl = (event) => {setRepl(event.target.value);}
   const onChangeFont = (event) => {setFont(event.target.value);}
@@ -54,9 +62,10 @@ export default function Home() {
   useEffect(() => {
     setUrl(encodeURI(
       "https://replit-badge.vercel.app/api?id=" +
-      (id ? id : 123456) +
+      (id ? id : defaultId) +
       (style === "flat" ? "" : "&style=gradient") +
       (theme === "light" ? "" : "&theme=dark") +
+      (border === "rounded" ? "" : "&border=square") +
       (featured ? ("&featuredOn="+featured) : "") +
       (repl ? ("&replTalk="+repl) : "") +
       (font ? ("&font="+font) : "")));
@@ -73,7 +82,7 @@ export default function Home() {
         <Grid xs={24} sm={24} md={12} style={{display: "block"}}>
           <div style={{textAlign: 'center'}}>
             <Text>Repl Talk URL</Text>
-            <Input placeholder="https://replit.com/talk/share/HelloWorld/123456" onChange={onChangeUrl} width="24em"/>
+            <Input placeholder={post} onChange={onChangeUrl} width="24em"/>
           </div>
           <Spacer y={1} />
 
@@ -91,6 +100,13 @@ export default function Home() {
           </Select>
           <Spacer y={.5} />
 
+          <Text style={{display: 'inline-block', width: '8em', textAlign: 'right', marginRight: '1em'}}>Border</Text>
+          <Select placeholder="Choose one" initialValue="1" onChange={onChangeBorder}>
+            <Select.Option value="1">Rounded</Select.Option>
+            <Select.Option value="2">Square</Select.Option>
+          </Select>
+          <Spacer y={.5} />
+
           <Text style={{display: 'inline-block', width: '8em', textAlign: 'right', marginRight: '1em'}}>Alternate Text 1</Text>
           <Input placeholder="Featured On" onChange={onChangeFeatured}/>
           <Spacer y={.5} />
@@ -103,12 +119,13 @@ export default function Home() {
           <Input placeholder="IBM Plex Sans" onChange={onChangeFont}/>
           <Spacer y={1} />
 
-          {/*<Button auto type="secondary-light" style={{display: "block", margin: "auto"}}>Generate badge</Button>*/}
         </Grid>
         <Grid xs={24} sm={24} md={12} style={{display: "block"}}>
           <Spacer y={2} />
           <Display shadow caption="Badge Preview">
-            <Image src={url} alt="Error: Invalid ID"/>
+            <a href={post} target="_blank">
+              <Image src={url} alt="Error: Invalid ID"/>
+            </a>
           </Display>
           <Description title="Markdown" content={
             <Code block>{

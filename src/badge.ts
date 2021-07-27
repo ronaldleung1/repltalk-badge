@@ -6,6 +6,7 @@ export const getBadge = async (
   id: number,
   style = "flat",
   theme = "light",
+  border = "rounded",
   font = "IBM Plex Sans",
   replTalk = "Repl Talk",
   featuredOn = "FEATURED ON"
@@ -25,6 +26,7 @@ export const getBadge = async (
       /{TRIANGLE_POS}/g,
       (textWidth + 90 + (numberWidth - 19) / 2).toString()
     )
+    .replace(/{BORDER_RADIUS}/g, (border === "rounded" ? 8 : 0).toString())
     .replace(/{FONT}/g, font)
     .replace(/{REPL_TALK}/g, replTalk)
     .replace(/{UPVOTES}/g, upvotes.toString())

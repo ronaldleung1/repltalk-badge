@@ -37,6 +37,7 @@ Use the [badge generator](https://create-replit-badge.now.sh/) to create your ow
 | id         | Integer | Yes      | -               | Repl Talk post ID, located in post URL |
 | style      | String  | No       | `"flat"`        | `"flat"` \| `"gradient"`               |
 | theme      | String  | No       | `"light"`       | `"light"` \| `"dark"`                  |
+| border     | String  | No       | `"rounded"`     | `"rounded"` \| `"square"`              |
 | featuredOn | String  | No       | `"FEATURED ON"` | Alternate text for upper label         |
 | replTalk   | String  | No       | `"Repl Talk"`   | Alternate text for lower label         |
 

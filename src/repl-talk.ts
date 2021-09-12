@@ -9,7 +9,7 @@ export const getNumberOfUpvotes = async (id: number) => {
         if(response.status === 200) {
           const html = await response.data;
           const $ = cheerio.load(html);
-          const upvotes: number = parseInt($(".jsx-441663429.vote-control-count").first().text());
+          const upvotes: number = parseInt($(".vote-control-heavy .vote-control-count").first().text());
           resolve(upvotes);
         }
       }, (error) => reject(console.log(error)));

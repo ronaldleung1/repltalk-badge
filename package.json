@@ -6,7 +6,8 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "local": "vercel dev"
+    "local": "vercel dev",
+    "docs": "cd docs && npm run dev"
   },
   "devDependencies": {
     "@now/node": "^1.2.0",
